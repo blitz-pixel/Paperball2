@@ -7,7 +7,7 @@ const Body = Matter.Body;
 
 function preload()
 {
-	
+	//PaperballImg=loadImage("paper");
 }
 
 function setup() {
@@ -18,7 +18,7 @@ function setup() {
 	world = engine.world;
 
     Ground=new ground();	
-	Paperball=new paper(50 , 50 , 5 );
+	Paperball=new paper(50 , 50 , 70 );
 	Dustbin=new box(650,635,200,20);
 	Dustbin1=new box(540,595,20,100);
 	Dustbin2=new box(740,595,20,100);
