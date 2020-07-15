@@ -12,6 +12,7 @@ class paper{
 
         this.body=Bodies.circle(x,y,radius/2,options);
         this.radius=radius;
+        this.image=loadImage('Sprites/paper.png')
         //this.width=x;
         //this.height=y;
         //this.image=loadImage("paper.png");
@@ -20,6 +21,7 @@ class paper{
 
     display(){
         var pos=this.body.position;
+        image(this.image,this.body.position.x-50,this.body.position.y-50,80,80);
         push();
         translate(pos.x,pos.y);
         ellipseMode(RADIUS);

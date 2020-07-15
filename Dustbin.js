@@ -18,15 +18,17 @@ class box{
         Matter.Body.setAngle(this.leftWall, this.angle);
         this.rightWall=Bodies.rectangle(this.x+this.width/2,this.y-this.height/2,this.thickness,this.height,options);
         Matter.Body.setAngle(this.rightWall, -1*this.angle)
-        //this.image=loadImage("dustbingreen.png")
+        this.image=loadImage('Sprites/dustbingreen.png')
         World.add(world,this.bottomBody);
         World.add(world, this.leftWall);
         World.add(world, this.rightWall);
     }
     display(){
+        image(this.image,1200,600,250,130);
         var Bottom=this.bottomBody.position;
         var left=this.leftWall.position;
-        var right=this.rightWall.position;
+        var right=this.rightWall.position
+        imageMode(CENTER);
         push();
         translate(left.x,left.y);
         rectMode(CENTER);

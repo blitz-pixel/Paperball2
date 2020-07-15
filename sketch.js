@@ -12,7 +12,7 @@ var world;
 
 function preload()
 {
-	//PaperballImg=loadImage("paper");
+	//PaperballImg=loadImage('Sprites/paper.png');
 }
 
 function setup() {
@@ -25,6 +25,7 @@ rectMode(CENTER);
 	Ground=new ground(width/2,670,width,20);
 	//Ground2=new ground(width/2,170,width,20);	
 	Paperball=new paper( 100, 450 , 20 );
+	//Paperball.addImage(PaperballImg);
 	Dustbin=new box(1200,650);
 	//Dustbin1=new box(540,595,20,100);
 	//Dustbin2=new box(740,595,20,100);	
