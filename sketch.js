@@ -6,6 +6,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Render=Matter.Render;
+const Constraint = Matter.Constraint;
 
 var Ground,Paperball,Dustbin;
 var world;
@@ -29,6 +30,7 @@ rectMode(CENTER);
 	Dustbin=new box(1200,650);
 	//Dustbin1=new box(540,595,20,100);
 	//Dustbin2=new box(740,595,20,100);	
+	Hanger=new launcher(Paperball.body,{x:100,y:200});
 
 	//packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:1.5, isStatic:false});
 	//World.add(world, packageBody)
@@ -55,12 +57,22 @@ function draw() {
   //Ground2.display();
   Paperball.display();
   Dustbin.display();
- keyPressed();
+  Hanger.display();
+  // keyPressed();
+   //mouseDragged();
+   //mouseReleased();
 }
 
-function keyPressed(){
-	if(keyCode === UP_ARROW){
-		Matter.Body.applyForce(Paperball.body,Paperball.body.position,{x:85,y:-85})
-	}
+//function keyPressed(){
+	//if(keyCode === UP_ARROW){
+	//	Matter.Body.applyForce(Paperball.body,Paperball.body.position,{x:85,y:-85})
+	//}
+//}
+
+function mouseReleased(){
+   Hanger.fly();
 }
 
+function mouseDragged(){
+    Matter.Body.setPosition(Paperball.body,{x:mouseX, y:mouseY});
+}
