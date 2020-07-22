@@ -30,7 +30,7 @@ rectMode(CENTER);
 	Dustbin=new box(1200,650);
 	//Dustbin1=new box(540,595,20,100);
 	//Dustbin2=new box(740,595,20,100);	
-	Hanger=new launcher(Paperball.body,{x:100,y:200});
+	Hanger=new launcher(Paperball.body,{x:200,y:300});
 
 	//packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:1.5, isStatic:false});
 	//World.add(world, packageBody)
