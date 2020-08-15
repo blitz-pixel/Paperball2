@@ -15,9 +15,9 @@ class ground{
         push();
         translate(pos.x,pos.y);
         rectMode(CENTER);
-        fill(255);
-        strokeWeight(4);
-        stroke(255);
+        fill("brown");
+        //strokeWeight(4);
+        //stroke(255);
         rect(0,0,this.width,this.height);
         pop(); 
        }
