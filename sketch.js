@@ -19,9 +19,13 @@ var level4=[];
 var level5=[];
 var level6=[];
 
+var bg="sprites/bg.png";
+var score=0;
+
 function preload()
 {
-	//PaperballImg=loadImage('Sprites/paper.png');
+  //PaperballImg=loadImage('Sprites/paper.png');
+  //getBackgroundImg();
 }
 
 function setup() {
@@ -35,7 +39,7 @@ rectMode(CENTER);
   Stand= new ground(555,550,230,15);
   Stand2=new ground(570,260,230,15);
 
-  Paperball=new polygon( 100, 450 , 20 );
+  Stone=new polygon( 100, 450 , 20 );
   
   for(a=463;a<=643;a+=30){
    level1.push(new box(a,524))
@@ -52,12 +56,12 @@ rectMode(CENTER);
   Box1=new box(553,460);
 
   for(d=478;d<=683;d+=30){
-    level4.push(new box(d,240))
+    level4.push(new box(d,220))
   }
 
   
   for(e=508;e<=653;e+=30){
-    level5.push(new box(e,200))
+    level5.push(new box(e,180))
   }
 
   
@@ -68,50 +72,65 @@ rectMode(CENTER);
   Box2=new box(568,120);
  
 	
-	Hanger=new Shot(Paperball.body,{x:200,y:100});
+	Hanger=new Shot(Stone.body,{x:200,y:100});
 
 
 }
 
 
 function draw() {
-	Engine.update(engine);
   background(0);
+
+  noStroke();
+  textSize(35);
+  fill("white");
+  text("Score:" + score,750,40);
+  
+  Engine.update(engine);
   Ground.display();
   
   Stand.display();
   Stand2.display();
-  Paperball.display();
+  Stone.display();
 
   for(k=0;k<level1.length;k++){
     level1[k].display();
+    level1[k].score(); 
   }
+
 
   for(l=0;l<level2.length;l++){
     level2[l].display();
+    level2[l].score();
   }
 
   for(m=0;m<level3.length;m++){
      level3[m].display();
+     level3[m].score();
   }
 
   Box1.display();
+  Box1.score();
 
   for(n=0;n<level4.length;n++){
     level4[n].display();
+    level4[n].score();
   }
 
   
   for(o=0;o<level5.length;o++){
     level5[o].display();
+    level5[o].score();
   }
 
   
   for(p=0;p<level6.length;p++){
     level6[p].display();
+    level6[p].score();
   }
 
   Box2.display();
+   Box2.score();
 
   Hanger.display();
    //keyPressed();
@@ -121,7 +140,7 @@ function draw() {
 
 function keyPressed(){
 	if(keyCode === 32){
-		Hanger.attach(Paperball.body);
+		Hanger.attach(Stone.body)
 	}
 }
 
@@ -130,6 +149,23 @@ function mouseReleased(){
 }
 
 function mouseDragged(){
-    Matter.Body.setPosition(Paperball.body,{x:mouseX, y:mouseY});
+    Matter.Body.setPosition(Stone.body,{x:mouseX, y:mouseY});
 }
 
+//async function getBackgroundImg(){
+  //var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+  //var responseJSON = await response.json();
+
+  //var datetime = responseJSON.datetime;
+  //var hour = datetime.slice(11,13);
+  
+  //if(hour>=0600 && hour<=1900){
+    //  bg = "bg.png";
+  //}
+  //else{
+    //  bg = "bg2.jpg";
+  //}
+
+  //backgroundImg = loadImage(bg);
+  //console.log(backgroundImg);
+//}

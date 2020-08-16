@@ -13,7 +13,7 @@ class Shot{
     }
     
     attach(body){
-        this.sling.bodyA = body;
+        this.sling.bodyA=body;
     }
 
     fly(){
@@ -21,8 +21,6 @@ class Shot{
     }
 
     display(){
-        //console.log(body);
-        
         if(this.sling.bodyA){
         var pointA = this.sling.bodyA.position;
         var pointB = this.pointB;
